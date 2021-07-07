@@ -1,10 +1,10 @@
 import axios from "axios";
 const BASE_URL = "https://connections-api.herokuapp.com";
 
-export const registrationApi = async (user) => {
+export const registrationApi = async (authFormState) => {
  try {
   const response = await axios.post(`${BASE_URL}/users/signup`, {
-   ...user,
+   ...authFormState,
   });
   return response;
  } catch (error) {
@@ -12,10 +12,10 @@ export const registrationApi = async (user) => {
  }
 };
 
-export const loginApi = async (user) => {
+export const loginApi = async (authFormState) => {
  try {
   const response = await axios.post(`${BASE_URL}​/users/login`, {
-   ...user,
+   ...authFormState,
   });
   return response;
  } catch (error) {

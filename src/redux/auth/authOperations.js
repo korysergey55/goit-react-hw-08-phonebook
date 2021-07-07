@@ -9,18 +9,18 @@ import {
  logoutUserActionError,
 } from "./authActions";
 
-export const registrationOperation = (user) => async (dispatch,) => {
+export const registrationOperation = (authFormState) => async (dispatch,) => {
  try {
-  const response = await registrationApi(user);
+  const response = await registrationApi(authFormState);
   dispatch(registerUserAction(response.data));
  } catch (error) {
   dispatch(registerUserActionError(error));
  }
 };
 
-export const loginOperation = (user) => async (dispatch) => {
+export const loginOperation = (authFormState) => async (dispatch) => {
  try {
-  const response = await loginApi(user);
+  const response = await loginApi(authFormState);
   dispatch(loginUserAction(response.data));
  } catch (error) {
   dispatch(loginUserActionError(error));
