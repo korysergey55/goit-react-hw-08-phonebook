@@ -2,7 +2,7 @@ import {
  getAllContactsApi,
  addNewContactApi,
  deleteContactApi,
- } from "../../components/servises/api";
+ } from "../../servises/api";
 
 import {
  getAllContacts,

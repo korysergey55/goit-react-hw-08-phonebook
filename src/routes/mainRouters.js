@@ -1,6 +1,7 @@
 
 import ContactFormPage from '../pages/ContactFormPage';
 import ContactListPage from "../pages/ContactListPage";
+import AuthPage from '../pages/AuthPage';
 
 
 export const mainRoutes = [
@@ -25,7 +26,7 @@ export const mainRoutes = [
  {
   name: "Registration",
   path: "/registration",
-  component: "",
+  component: AuthPage,
   exact: true,
   isLink: true,
   isPrivate: false,
@@ -34,7 +35,7 @@ export const mainRoutes = [
  {
   name: "Login",
   path: "/login",
-  component: "",
+  component: AuthPage,
   exact: true,
   isLink: true,
   isPrivate: false,

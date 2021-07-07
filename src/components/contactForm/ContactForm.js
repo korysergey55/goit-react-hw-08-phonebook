@@ -17,6 +17,7 @@ import {
 const initialState = {
  name: "",
  number: "",
+ 
 };
 
 class ContactForm extends Component {
