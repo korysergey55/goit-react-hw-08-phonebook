@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { combineReducers } from "@reduxjs/toolkit"; 
+import { combineReducers } from "@reduxjs/toolkit";
 import {
  registerUserAction,
  registerUserActionError,
@@ -9,9 +9,15 @@ import {
  logoutUserActionError,
 } from "./authActions";
 
-const authItemReducer = createReducer(null, {
- [registerUserAction]: (state, action) => action.payload,
- [loginUserAction]: (state, action) => action.payload,
+const tokenReducer = createReducer(null, {
+ [registerUserAction]: (state, action) => action.payload.token,
+ [loginUserAction]: (state, action) => action.payload.token,
+ [logoutUserAction]: (state, action) => null,
+});
+
+const userReducer = createReducer(null, {
+ [registerUserAction]: (state, action) => action.payload.user,
+ [loginUserAction]: (state, action) => action.payload.user,
  [logoutUserAction]: (state, action) => null,
 });
 
@@ -22,8 +28,8 @@ const errorItemReducer = createReducer(null, {
 });
 
 const authReducer = combineReducers({
- auth: authItemReducer,
+ token: tokenReducer,
+ user: userReducer,
  error: errorItemReducer,
 });
 export default authReducer;
-

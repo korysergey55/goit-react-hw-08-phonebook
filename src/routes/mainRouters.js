@@ -20,7 +20,7 @@ export const mainRoutes = [
   component: ContactListPage,
   exact: true,
   isLink: true,
-  isPrivate: false,
+  isPrivate: true,
   isRestricted: false,
  },
  {
@@ -30,7 +30,7 @@ export const mainRoutes = [
   exact: true,
   isLink: true,
   isPrivate: false,
-  isRestricted: false,
+  isRestricted: true,
  },
  {
   name: "Login",
@@ -39,6 +39,6 @@ export const mainRoutes = [
   exact: true,
   isLink: true,
   isPrivate: false,
-  isRestricted: false,
+  isRestricted: true,
  },
 ];

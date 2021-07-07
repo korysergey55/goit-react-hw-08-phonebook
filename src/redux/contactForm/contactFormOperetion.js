@@ -14,10 +14,12 @@ import {
  setLoader,
 } from "./contactFormActions";
 
-export const getAllContactsOperation = (contact) => async (dispatch) => {
+export const getAllContactsOperation = () => async (dispatch, getState) => {
+ const token = getState().auth.token;
+
  try {
   dispatch(setLoader());
-  const response = await getAllContactsApi(contact);
+  const response = await getAllContactsApi(token);
   dispatch(getAllContacts(response.data));
   dispatch(setLoader());
  } catch (error) {
@@ -25,21 +27,23 @@ export const getAllContactsOperation = (contact) => async (dispatch) => {
  }
 };
 
-export const addContactOperation = (contact) => async (dispatch) => {
+export const addContactOperation = (contact) => async (dispatch, getState) => {
+ const token = getState().auth.token;
  try {
   dispatch(setLoader());
-  const response = await addNewContactApi(contact);
+  const response = await addNewContactApi(contact, token);
   dispatch(submitNewContact(response.data));
   dispatch(setLoader());
  } catch (error) {
- dispatch(submitNewContactRequestError(error));
+  dispatch(submitNewContactRequestError(error));
  }
 };
 
-export const deleteContactOperation = (id) => async (dispatch) => {
+export const deleteContactOperation = (id) => async (dispatch, getState) => {
+ const token = getState().auth.token;
  try {
   dispatch(setLoader());
-  await deleteContactApi(id);
+  await deleteContactApi(id, token);
   dispatch(handleDelete(id));
   dispatch(setLoader());
  } catch (error) {

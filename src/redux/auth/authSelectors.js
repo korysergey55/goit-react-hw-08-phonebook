@@ -1,1 +1,1 @@
-export const isAuthSelector = (state) => state.auth.auth?.idToken;
+export const isAuthSelector = (state) => state.auth?.token;

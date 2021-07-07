@@ -5,19 +5,23 @@ import { connect } from "react-redux";
 
 import { HeaderConteinerStyled } from "./HeaderStyled";
 import { isAuthSelector } from "../../redux/auth/authSelectors";
-import { logoutUserAction } from "../../redux/auth/authActions";
+import { logoutOperation } from "../../redux/auth/authOperations";
+import { ReactComponent as Icon } from "../../images/avatar.svg";
 
 const Header = ({ isAuth, logout }) => {
  return (
   <HeaderConteinerStyled>
    <ul className="headerConteiner">
     {mainRoutes.map((route) => (
-     <HeaderItem route={route} />
+     <HeaderItem route={route} isAuth={isAuth} />
     ))}
     {isAuth && (
-     <li onClick={logout}>
-      <span>LogOut</span>
-     </li>
+     <>
+      <li className="nawLink" activeClassName="nawLinkActive" onClick={logout}>
+       <Icon width="40" height="40"/>
+       <span>LogOut</span>
+      </li>
+     </>
     )}
    </ul>
   </HeaderConteinerStyled>
@@ -29,7 +33,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = {
- logout: logoutUserAction,
+ logout: logoutOperation,
 };
 
-export default connect( mapStateToProps,mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

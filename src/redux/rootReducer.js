@@ -14,7 +14,7 @@ const persistContactsConfig = {
 const persistAuthConfig = {
  key: "auth",
  storage,
- whitelist: ["contacts"],
+ whitelist: ["token"],
 };
 
 const rootReducer = combineReducers({

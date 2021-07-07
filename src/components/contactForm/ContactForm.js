@@ -13,11 +13,12 @@ import {
  contactsSelector,
  loaderSelector,
 } from "../../redux/contactForm/contactFormSelectors";
+import { isAuthSelector } from "../../redux/auth/authSelectors";
 
 const initialState = {
  name: "",
  number: "",
- 
+
 };
 
 class ContactForm extends Component {
@@ -30,8 +31,9 @@ class ContactForm extends Component {
  };
 
  componentDidMount() {
-  this.props.getAllContactsOperation();
- }
+    this.props.token &&  this.props.getAllContactsOperation();
+  }
+
  saveInputValueToState = (evt) => {
   this.setState({
    [evt.target.name]: evt.target.value,
@@ -65,11 +67,12 @@ class ContactForm extends Component {
  render() {
   return (
    <>
-    {this.props.loader && <Loader/>}
+    {this.props.loader && <Loader />}
     <form className={styles.mainForm} onSubmit={this.handleSubmitForm}>
      <div className={styles.inputContainer}>
       <label className={styles.labelName}>Name</label>
       <input
+       value={this.state.name}
        onChange={this.saveInputValueToState}
        type="text"
        name="name"
@@ -84,6 +87,7 @@ class ContactForm extends Component {
      <div className={styles.inputContainer}>
       <label className={styles.labelName}>Number</label>
       <input
+       value={this.state.number}
        onChange={this.saveInputValueToState}
        type="tel"
        name="number"
@@ -101,9 +105,11 @@ class ContactForm extends Component {
   );
  }
 }
+
 const mapStateToProps = (state, ownProps) => ({
  contacts: contactsSelector(state),
  loader: loaderSelector(state),
+ token: isAuthSelector(state),
 });
 
 const mapDispatchToProps = {
