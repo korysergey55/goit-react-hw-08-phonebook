@@ -1,8 +1,4 @@
 import React from "react";
-import Section from "./sectipon/Section";
-import ContactList from "./contactList/ContactList";
-import ContactForm from "./contactForm/ContactForm";
-import Filter from "./filter/Filter";
 import Header from "./header/Header";
 
 import { Switch, Route } from "react-router";
@@ -22,17 +18,8 @@ const App = () => {
      />
     ))}
    </Switch>
-   {/* 
-   <Section title={"Phonebook"}>
-    <ContactForm />
-   </Section>
-
-   <Section title={"Contacts"}>
-    <Filter />
-
-    <ContactList />
-   </Section> */}
   </>
  );
 };
+
 export default App;
