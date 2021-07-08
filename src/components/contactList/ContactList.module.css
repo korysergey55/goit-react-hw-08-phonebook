@@ -24,6 +24,7 @@
 }
 .btn {
  display: inline-block;
+  
 }
 .btn:hover {
  cursor: pointer;

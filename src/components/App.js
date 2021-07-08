@@ -19,7 +19,7 @@ const App = ({isAuth}) => {
        path={route.path}
        exact={route.exact}
        component={route.component}
-       rey={route.path}
+       key={route.path}
        isAuth={isAuth}
        isRestricted={route.isRestricted}
       />
@@ -28,7 +28,7 @@ const App = ({isAuth}) => {
        path={route.path}
        exact={route.exact}
        component={route.component}
-       rey={route.path}
+       key={route.path}
        isAuth={isAuth}
        isRestricted={route.isRestricted}
       />

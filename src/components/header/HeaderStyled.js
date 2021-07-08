@@ -19,7 +19,7 @@ export const HeaderConteinerStyled = styled.header`
  .nawLinkActive {
   color: #f70202;
  }
- .nawLink:hover{
-     background-color: white;
+ .nawLink:hover {
+  background-color: white;
  }
 `;

@@ -13,12 +13,12 @@ const Header = ({ isAuth, logout }) => {
   <HeaderConteinerStyled>
    <ul className="headerConteiner">
     {mainRoutes.map((route) => (
-     <HeaderItem route={route} isAuth={isAuth} />
+     <HeaderItem route={route} isAuth={isAuth} key={route.name} />
     ))}
     {isAuth && (
      <>
-      <li className="nawLink" activeClassName="nawLinkActive" onClick={logout}>
-       <Icon width="40" height="40"/>
+      <li className="nawLink"  onClick={logout}>
+       <Icon width="40" height="40" />
        <span>LogOut</span>
       </li>
      </>

@@ -5,7 +5,7 @@ const HeaderItem = ({ route, isAuth }) => {
  return (
   <>
    {!route.isPrivate && !route.isRestricted && (
-    <li key={route.path}>
+    <li key={route.name}>
      <NavLink
       to={route.path}
       exact={route.exact}
@@ -18,7 +18,7 @@ const HeaderItem = ({ route, isAuth }) => {
    )}
 
    {!route.isPrivate && route.isRestricted && !isAuth && (
-    <li key={route.path}>
+    <li key={route.name}>
      <NavLink
       to={route.path}
       exact={route.exact}
@@ -31,7 +31,7 @@ const HeaderItem = ({ route, isAuth }) => {
    )}
 
    {route.isPrivate && !route.isRestricted && isAuth && (
-    <li key={route.path}>
+    <li key={route.name}>
      <NavLink
       to={route.path}
       exact={route.exact}
