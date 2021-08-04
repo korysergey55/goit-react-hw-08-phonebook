@@ -12,7 +12,7 @@ import {
 } from "./contactFormActions";
 
 const itemsReducer = createReducer(
- [{ id: "id-1", name: "Rosie Simpson", number: "459-12-56" }],
+ [{ id: "id-1", name: "Rosie Simpson", number: "459-12-56" },],
  {
   [getAllContacts]: (state, action) => [...action.payload],
   [submitNewContact]: (state, action) => [...state, action.payload],
@@ -30,8 +30,7 @@ const loaderReducer = createReducer(false, {
 });
 
 const errorReducer = createReducer(
- {},
- {
+ {}, {
   [getAllRequestError]: (state, action) => action.payload,
   [submitNewContactRequestError]: (state, action) => action.payload,
   [handleDeleteRequestError]: (state, action) => action.payload,

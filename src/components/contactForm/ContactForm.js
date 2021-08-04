@@ -18,7 +18,6 @@ import { isAuthSelector } from "../../redux/auth/authSelectors";
 const initialState = {
  name: "",
  number: "",
-
 };
 
 class ContactForm extends Component {
@@ -31,8 +30,8 @@ class ContactForm extends Component {
  };
 
  componentDidMount() {
-    this.props.token &&  this.props.getAllContactsOperation();
-  }
+  this.props.token && this.props.getAllContactsOperation();
+ }
 
  saveInputValueToState = (evt) => {
   this.setState({

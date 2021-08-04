@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { deleteContactOperation } from "../../redux/contactForm/contactFormOperetion";
 
-
 const ContactList = ({ contacts, handleDelete }) => {
  return (
   <div className={styles.mainContainer}>

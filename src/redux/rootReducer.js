@@ -1,20 +1,21 @@
 import {combineReducers} from 'redux';
 import contactFormReducer from '../redux/contactForm/contactFormReducer';
 import authReducer from './auth/authReducer';
-
-// ----------persist-----------------
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+
+// ----------persist-----------------
 
 const persistContactsConfig = {
  key: "contacts",
  storage,
- whitelist: ["contacts"],
+ whitelist: ["items"],
 };
+
 const persistAuthConfig = {
  key: "auth",
  storage,
- whitelist: ["token"],
+ whitelist: ["token","user"],
 };
 
 const rootReducer = combineReducers({
